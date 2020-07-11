@@ -1,0 +1,6 @@
+name = "github-api-wrapper"
+type = "javascript"
+account_id = "cfbf902f5476fcc8d9ce34cf658db096"
+workers_dev = true
+route = ""
+zone_id = ""
