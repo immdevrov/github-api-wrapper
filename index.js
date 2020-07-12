@@ -1,9 +1,8 @@
-
 const baseUrl = 'https://jobs.github.com/positions.json'
 const params = {
   headers: {
-    'content-type': 'application/json',
-  },
+    'content-type': 'application/json'
+  }
 }
 
 async function handleRequest(request) {
