@@ -1,22 +1,23 @@
 
-const baseUrl = 'https://jobs.github.com/positions.json?page=1&search=javascript'
+const baseUrl = 'https://jobs.github.com/positions.json'
 const params = {
   headers: {
-    'content-type': 'application/json;charset=UTF-8',
+    'content-type': 'application/json',
   },
 }
 
-async function handleRequest() {
-  const response = await fetch(baseUrl, params)
+async function handleRequest(request) {
+  const searchString = new URL(request.url).search
+  const response = await fetch(baseUrl + searchString, params)
   const result = await gatherResponse(response)
   return new Response(result, params)
 }
 
 addEventListener('fetch', event => {
-  return event.respondWith(handleRequest())
+  return event.respondWith(handleRequest(event.request))
 })
 
-async function gatherResponse (response) {
+async function gatherResponse(response) {
   const { headers } = response
   const contentType = headers.get('content-type') || ''
   if (contentType.includes('application/json')) {
