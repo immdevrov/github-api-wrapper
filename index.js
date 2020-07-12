@@ -1,7 +1,10 @@
 const baseUrl = 'https://jobs.github.com/positions.json'
 const params = {
   headers: {
-    'content-type': 'application/json'
+    'content-type': 'application/json',
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'GET, HEAD, POST, OPTIONS',
+    'Access-Control-Allow-Headers': '*'
   }
 }
 
